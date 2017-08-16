@@ -1,0 +1,4 @@
+./node_modules
+*.directory
+*-swp
+.kdev4
