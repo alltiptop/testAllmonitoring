@@ -63,22 +63,17 @@
           </div>
 
           <div>
-            <span v-if="props.item.id !== editable.id">{{props.item.statusCode}}</span>
-            <select v-else v-model="editable.statusCode">
-              <option v-for="code in codes">{{code}}</option>
-            </select>
+            <span>{{props.item.statusCode}}</span>
           </div>
 
           <div class="progress">
-            <span v-if="props.item.id !== editable.id">
+            <span>
               {{props.item.progress}}
             </span>
-            <input type="number" v-model="editable.progress" min="0" max="100" v-else />
             <div v-bind:style="{ width: props.item.progress + '%' }"></div>
           </div>
 
           <div>
-            {{ isEdit }}
             <button class="red" @click="deleteIt(props.item)">Удалить</button>
             <button class="green" @click="toEdit(props.item)" v-if="props.item.id !== editable.id">
               Изменить
@@ -194,7 +189,8 @@ button:hover {
   cursor: pointer;
 }
 .table {
-  margin-top: 40px;
+  margin-top: 0;
+  width: 100%;
   border: 1px solid #ccc;
   border-right: none;
   position: relative;
@@ -203,7 +199,7 @@ button:hover {
 }
 .scroll {
   overflow-y: scroll;
-  height: calc(100vh - 300px);
+  height: calc(100vh - 500px);
 }
 .table table {
   width: 100%;
@@ -242,16 +238,30 @@ button:hover {
   display: inline-block;
   border-right: 1px solid #ccc;
   float: left;
-  width: 15%
 }
 
 .items > div > div:nth-child(1), .title > div:nth-child(1) {
-  width: 5%;
+  min-width: 80px;
   text-align: center;
+}
+.items > div > div:nth-child(2), .title > div:nth-child(2) {
+  min-width: 180px;
+}
+.items > div > div:nth-child(3), .title > div:nth-child(3) {
+  min-width: 280px;
+}
+.items > div > div:nth-child(4), .title > div:nth-child(4) {
+  min-width: 180px;
+}
+.items > div > div:nth-child(5), .title > div:nth-child(5) {
+  min-width: 120px;
+}
+.items > div > div:nth-child(6), .title > div:nth-child(6) {
+  min-width: 120px;
 }
 
 .items > div > div:nth-last-child(1), .title > div:nth-last-child(1) {
-  width: 20%;
+  width: calc(100% - 960px);
   text-align: center;
 }
 

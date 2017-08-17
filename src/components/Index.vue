@@ -3,13 +3,13 @@
 
     <!-- Search bar -->
 
-    <search-field>
-    </search-field>
+    <tasks-create>
+    </tasks-create>
 
     <!-- Search bar -->
 
-    <tasks-create>
-    </tasks-create>
+    <search-field>
+    </search-field>
 
     <!-- Tasks list -->
 

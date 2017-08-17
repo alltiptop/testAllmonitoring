@@ -1,11 +1,9 @@
 <template>
   <div class="search">
     <div class="tab">
-      <small>Имя задачи</small>
-      <input type="text" @change="update()" v-model="options.name"/>
+      <input type="text" @change="update()" placeholder="Название задачи" v-model="options.name"/>
     </div>
     <div class="tab">
-      <small>Загрузить задачи</small>
       с:
       <input type="date" @change="update()" v-model="options.from">
       по:
@@ -14,7 +12,7 @@
     <div class="tab">
       <small>Статус:</small>
       <select v-model="options.statusCode" @change="update()">
-        <option disabled>Статус задачи</option>
+        <option disabled="disabled">Статус задачи</option>
         <option v-for="code in codes">{{code}}</option>
       </select>
     </div>
@@ -38,6 +36,8 @@ export default {
         'FINISHED',
         'FAILED'
       ],
+      dateFrom: [],
+      dateTo: [],
       options: {
         name: '',
         typeId: '',
@@ -69,24 +69,33 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+  font-weight: normal;
+  margin-bottom: 50px;
+  font-size: 24px;
+}
 .search {
-  border: 1px solid #ccc;
-  background: #f7f7f7;
   display: inline-block;
-  width: 100%
+  float: left;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #f7f7f7;
+  padding: 0 20px;
+  border: 1px solid #ccc;
+  border-bottom: 0;
+  margin-bottom: 0;
 }
 .tab {
+  background: #f7f7f7;
   float: left;
-  margin: 18px;
+  line-height: 60px;
+  height: 60px;
   padding-right: 20px;
-  border-right: 2px solid #ccc;
-}
-.tab:nth-last-child(1) {
-  border-right: none;
+  margin-right: 10px;
+  position: relative;
 }
 .tab small {
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 10px;
+  font-size: 12px;
 }
 </style>
